@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.S - ماشاءاللہ Online Service | Professional Documentation & E-Services Hub Lahore</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            900: '#064e3b',
+                        },
+                        darkBg: '#090d16',
+                        cardBg: '#111827',
+                        cardHover: '#1f2937'
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'Poppins', 'sans-serif'],
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.3 },
+                            '50%': { opacity: 0.7 },
+                        }
+                    },
+                    animation: {
+                        float: 'float 4s ease-in-out infinite',
+                        pulseGlow: 'pulseGlow 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Outfit & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Outfit', 'Poppins', sans-serif;
+            background-color: #090d16;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .glass-card {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 12px 35px -10px rgba(16, 185, 129, 0.25);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 0%, #34d399 50%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-[#090d16] text-gray-100 min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
+
+    <!-- Background Glow Blobs -->
+    <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none animate-pulseGlow"></div>
+    <div class="fixed bottom-10 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none animate-pulseGlow" style="animation-delay: 1.5s;"></div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 glass-card border-b border-gray-800/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateToHome()">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                    <i class="fa-solid fa-shield-halved text-white text-xl"></i>
+                </div>
+                <div>
+                    <div class="text-emerald-400 font-bold tracking-widest text-xs uppercase">﷽ M.S - ماشاءاللہ</div>
+                    <h1 class="text-base sm:text-lg font-extrabold tracking-tight text-white">Online Service Hub</h1>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-300">
+                <a href="#services" onclick="navigateToHome()" class="hover:text-emerald-400 transition">Services</a>
+                <a href="#contact" onclick="scrollToContact()" class="hover:text-emerald-400 transition">Location & Contact</a>
+                <div class="flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-3.5 py-1.5 rounded-full text-xs font-semibold shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>Open Now | Lahore</span>
+                </div>
+            </div>
+
+            <div class="flex items-center space-x-3">
+                <a href="tel:03048981348" class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-semibold text-sm transition flex items-center space-x-2 shadow-lg shadow-emerald-600/30">
+                    <i class="fa-solid fa-phone"></i>
+                    <span class="hidden sm:inline">0304-8981348</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- VIEW 1: HOME & SERVICE CATEGORIES -->
+        <div id="home-view" class="animate-fade-in">
+            <!-- Hero Banner -->
+            <div class="relative rounded-3xl overflow-hidden p-8 sm:p-12 mb-12 bg-gradient-to-br from-slate-900 via-gray-900 to-emerald-950 border border-emerald-500/20 shadow-2xl">
+                <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-2xl">
+                    <span class="inline-block bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider mb-4">
+                        <i class="fa-solid fa-star mr-1"></i> Professional Government & E-Services Hub
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+                        Your Trusted Portal for <span class="gradient-text">All Official Documentation</span>
+                    </h2>
+                    <p class="text-gray-300 text-base sm:text-lg mb-8 leading-relaxed">
+                        Fast, reliable, and secure online assistance for NADRA, BISE Lahore, Driving License, Land Records, E-Challan, Token Tax, Banking, and Govt Schemes in Lahore.
+                    </p>
+                    
+                    <!-- Search Bar -->
+                    <div class="relative max-w-xl">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-gray-400">
+                            <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                        </span>
+                        <input type="text" id="live-search" oninput="handleSearch(this.value)" placeholder="Search any service (e.g. CNIC, BISE Lahore, E-Challan, Fard)..." class="w-full pl-12 pr-4 py-4 rounded-2xl bg-gray-900/90 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30 transition text-sm shadow-inner">
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-800/80 flex flex-wrap gap-6 text-sm text-gray-300">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-user-tie text-emerald-400 text-lg"></i>
+                        <span>Owner: <strong class="text-white">Muhammad Asad</strong></span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-location-dot text-emerald-400 text-lg"></i>
+                        <span>Munir Chowk, Chungi Amer Sadhu, Lahore</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Section Header -->
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-white flex items-center gap-3">
+                        <i class="fa-solid fa-layer-group text-emerald-400"></i> All Service Categories
+                    </h3>
+                    <p class="text-gray-400 text-sm mt-1">Click any category to open sub-services, requirements, and direct application.</p>
+                </div>
+                <div class="text-xs text-gray-400 bg-gray-800/60 px-3.5 py-2 rounded-xl border border-gray-700">
+                    <span id="service-count" class="text-emerald-400 font-bold text-sm">18</span> Categories Available
+                </div>
+            </div>
+
+            <!-- Categories Grid -->
+            <div id="categories-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated via JavaScript -->
+            </div>
+        </div>
+
+        <!-- VIEW 2: SUB-SERVICES & DETAILS VIEW -->
+        <div id="detail-view" class="hidden animate-fade-in">
+            <button onclick="navigateToHome()" class="inline-flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-4.5 py-2.5 rounded-xl text-sm font-semibold mb-6 transition shadow-sm">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to All Categories</span>
+            </button>
+
+            <div id="sub-service-content">
+                <!-- Populated dynamically when category is clicked -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Application / Inquiry Modal -->
+    <div id="inquiry-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden animate-fade-in">
+        <div class="glass-card max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-emerald-500/30 shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white bg-gray-800 w-9 h-9 rounded-full flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <div class="mb-6">
+                <span class="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full font-semibold uppercase">Instant Application</span>
+                <h3 id="modal-title" class="text-2xl font-bold text-white mt-2">Service Inquiry</h3>
+                <p class="text-gray-400 text-sm mt-1">Fill out your details to connect directly with Muhammad Asad on WhatsApp.</p>
+            </div>
+            <form id="inquiry-form" onsubmit="submitInquiry(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1.5">Your Full Name</label>
+                    <input type="text" id="client-name" required placeholder="Enter your name" class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1.5">Your Phone / WhatsApp Number</label>
+                    <input type="tel" id="client-phone" required placeholder="e.g. 03001234567" class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1.5">Selected Service</label>
+                    <input type="text" id="client-service" readonly class="w-full px-4 py-3 rounded-xl bg-gray-900/60 border border-gray-800 text-emerald-400 font-semibold text-sm cursor-not-allowed">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 uppercase mb-1.5">Additional Details / Message (Optional)</label>
+                    <textarea id="client-message" rows="3" placeholder="Mention any specific requirements or questions..." class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 text-sm resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3.5 px-6 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-emerald-600/30">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Send Inquiry to WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Quick Action Buttons -->
+    <div class="fixed bottom-6 right-6 z-40 flex flex-col space-y-3">
+        <a href="https://wa.me/923048981348?text=Assalam-o-Alaikum,%20I%20want%20to%20inquire%20about%20your%20services." target="_blank" class="w-14 h-14 bg-emerald-600 hover:bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl shadow-xl shadow-emerald-600/40 transition hover:scale-110" title="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:03048981348" class="w-14 h-14 bg-blue-600 hover:bg-blue-500 text-white rounded-full flex items-center justify-center text-xl shadow-xl shadow-blue-600/40 transition hover:scale-110" title="Call Now">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Contact & Location Footer Section -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-16 mb-12">
+        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-emerald-500/20 shadow-2xl relative overflow-hidden">
+            <div class="absolute -left-10 -top-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative z-10">
+                <div>
+                    <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        Office Details
+                    </span>
+                    <h3 class="text-3xl font-bold text-white mt-4 mb-3">M.S - ماشاءاللہ Online Service</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Visit our office for prompt, reliable assistance with all government registrations, financial transfers, utility bill payments, and documentation.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4 bg-gray-900/60 p-4 rounded-2xl border border-gray-800">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-user-shield text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-gray-400 font-semibold uppercase">Proprietor / Owner</h4>
+                                <p class="text-white font-bold text-base">Muhammad Asad</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 bg-gray-900/60 p-4 rounded-2xl border border-gray-800">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-gray-400 font-semibold uppercase">Contact / WhatsApp Number</h4>
+                                <a href="tel:03048981348" class="text-emerald-400 hover:underline font-bold text-base">0304-8981348</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 bg-gray-900/60 p-4 rounded-2xl border border-gray-800">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs text-gray-400 font-semibold uppercase">Office Address</h4>
+                                <p class="text-white font-medium text-sm leading-relaxed">Mohallah Munir Chowk, Baba Farid Colony, Kacha Jail Road, Chungi Amer Sadhu, Lahore</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-900/80 rounded-2xl p-8 border border-gray-800 flex flex-col justify-between h-full">
+                    <div>
+                        <h4 class="text-xl font-bold text-white mb-3">Quick Inquiry & Support</h4>
+                        <p class="text-gray-400 text-sm mb-6">Have questions regarding document requirements, processing fees, or status checks? Contact us directly right now!</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <a href="https://wa.me/923048981348?text=Assalam-o-Alaikum,%20I%20want%20to%20inquire%20about%20your%20services." target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3.5 px-6 rounded-xl transition flex items-center justify-center space-x-3 shadow-lg shadow-emerald-600/30">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                        <a href="tel:03048981348" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3.5 px-6 rounded-xl transition flex items-center justify-center space-x-3 shadow-lg shadow-blue-600/30">
+                            <i class="fa-solid fa-phone-volume text-xl"></i>
+                            <span>Call Now: 0304-8981348</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8 text-center text-sm text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                <p>&copy; 2026 <strong class="text-white">M.S - ماشاءاللہ Online Service</strong>. All Rights Reserved.</p>
+                <p class="text-xs text-gray-500 mt-1">Owner: Muhammad Asad | Chungi Amer Sadhu, Lahore</p>
+            </div>
+            <div class="flex items-center space-x-4 text-emerald-400">
+                <span class="text-xs bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1.5 rounded-full">Secure & Professional</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Complete Master Service Database corresponding strictly to user specifications
+        const servicesData = [
+            {
+                id: 'nadra',
+                title: 'NADRA Services',
+                icon: 'fa-id-card',
+                badge: 'Official Partner',
+                description: 'Comprehensive NADRA documentation including CNIC renewal, modifications, B-Form, FRC, Hajj biometric, and certificates.',
+                subServices: [
+                    { name: 'CNIC Lost', time: '1-3 Days', docs: 'Original FIR / Police Report copy, old CNIC number or copy.', fee: 'Standard Govt Fee + Service Charges', desc: 'Instant application processing for lost Computerized National Identity Cards.' },
+                    { name: 'CNIC Renewal', time: '2-4 Days', docs: 'Expired CNIC card, biometric verification.', fee: 'Varies by urgency (Normal/Urgent/Executive)', desc: 'Renew your expired CNIC smoothly with official biometric verification.' },
+                    { name: 'CNIC Modification', time: '4-7 Days', docs: 'Original CNIC, supporting legal documents for name/address/marital status change.', fee: 'Standard NADRA Charges', desc: 'Update your address, marital status, name, or family tree details securely.' },
+                    { name: 'CNIC Expire', time: 'Immediate', docs: 'Expired card.', fee: 'Normal/Urgent rates', desc: 'Check expiry status and initiate immediate renewal request.' },
+                    { name: 'CNIC Copy / Duplicate', time: 'Same Day', docs: 'CNIC number, police report in case of theft.', fee: 'Standard Fee', desc: 'Get official certified copy or duplicate token slip.' },
+                    { name: 'CNIC Cancellation', time: '3-5 Days', docs: 'Death certificate (in case of deceased) or court decree, original CNIC.', fee: 'Standard NADRA Fee', desc: 'Official cancellation procedure for CNIC records.' },
+                    { name: 'B-Form (Child Registration Certificate)', time: 'Same Day', docs: 'Parents original CNICs, Hospital birth certificate.', fee: 'Nominal Govt Fee', desc: 'Register your newborn child and obtain official B-Form instantly.' },
+                    { name: 'Family Registration Certificate (FRC)', time: 'Same Day', docs: 'CNIC copies of family members.', fee: 'Rs. 1,000 + Service Fee', desc: 'Obtain official FRC by birth, marriage, or adoption.' },
+                    { name: 'B-Form to CNIC Conversion', time: 'Immediate', docs: 'Old B-Form number or child turning 18 years old.', fee: 'Standard CNIC Fee', desc: 'Seamless transition and application for first-time adult CNIC upon turning 18.' },
+                    { name: 'Booking Appointment in Nadra Office', time: 'Instant Booking', docs: 'CNIC number, preferred time slot.', fee: 'Free Booking Assistance', desc: 'Skip long queues by booking your priority Nadra executive center token in advance.' },
+                    { name: 'Proof of Life Certificate', time: '1 Day', docs: 'Pension book, applicant physical presence / biometric.', fee: 'Nominal Service Fee', desc: 'Life verification certificate required for pensioners and legal matters.' },
+                    { name: 'Vaccination Biometric for Hajj & Umrah', time: 'Same Day', docs: 'Valid Passport, CNIC, Covid-19 vaccination proof.', fee: 'Standard Processing Fee', desc: 'Mandatory biometric verification and health clearance for pilgrimage travelers.' },
+                    { name: 'Polio & Covid-19 Vaccination Certificate', time: '15 Minutes', docs: 'CNIC number and mobile phone.', fee: 'Nadra Official Fee', desc: 'Official NADRA-issued digital travel certificates for international travel.' }
+                ]
+            },
+            {
+                id: 'bise-lahore',
+                title: 'BISE Lahore Service',
+                icon: 'fa-graduation-cap',
+                badge: 'Board of Education',
+                description: 'Duplicate certificates, result card verification, attestation, NOC/migration, and correction of name or date of birth.',
+                subServices: [
+                    { name: 'Duplicate Certificate (Matric / Inter)', time: '3-7 Days', docs: 'Application form, CNIC/B-Form, newspaper ad (if lost), affidavit.', fee: 'BISE Fee + Service Charges', desc: 'Official duplicate certificate issuance for Matric and Intermediate from BISE Lahore.' },
+                    { name: 'Verification Certificate', time: '2-5 Days', docs: 'Copy of result card/certificate, CNIC.', fee: 'Board Verification Fee', desc: 'Official result card or certificate verification for jobs and higher education.' },
+                    { name: 'Attestation Certificate', time: '1-2 Days', docs: 'Original certificates/result cards, CNIC.', fee: 'Standard Service Fee', desc: 'Attestation of educational documents for local or international use.' },
+                    { name: 'NOC / Migration Certificate', time: '2-4 Days', docs: 'Original result card, leaving certificate from institution.', fee: 'Board Fee + Service Charges', desc: 'Migration certificate for shifting from BISE Lahore to another board or university.' },
+                    { name: 'Change / Correction of Father Name', time: '7-15 Days', docs: 'Corrected CNIC, father CNIC, school record, affidavit.', fee: 'Board Correction Fee', desc: 'Official correction of father name on educational certificates.' },
+                    { name: 'Correction of Date of Birth', time: '7-15 Days', docs: 'B-Form / CNIC, school admission register copy, birth certificate.', fee: 'Board Fee', desc: 'Official procedure for rectifying date of birth on board records.' },
+                    { name: 'Print Result & Gazette Search', time: 'Instant', docs: 'Roll number, passing year, name.', fee: 'Nominal Service Fee', desc: 'Instant printing of official result cards and board result search.' }
+                ]
+            },
+            {
+                id: 'driving-licence',
+                title: 'Driving Licence Service',
+                icon: 'fa-car',
+                badge: 'Traffic Police Hub',
+                description: 'Complete assistance for learner permits, regular license renewals, duplicate copies, and lost license recovery.',
+                subServices: [
+                    { name: 'Learner Permit (New)', time: 'Same Day', docs: 'Original CNIC, Passport size photo.', fee: 'Govt Fee (Rs. 60 + Service Charges)', desc: 'Get your official learner driving permit issued instantly for cars and motorcycles.' },
+                    { name: 'Learner Permit (Renewal)', time: 'Same Day', docs: 'Expired learner permit, CNIC.', fee: 'Govt Fee + Service Charges', desc: 'Renew your expired learner permit without delay.' },
+                    { name: 'Regular Driving Licence Renewal', time: '1-3 Days', docs: 'Expired license card, CNIC, medical fitness certificate.', fee: 'Official Traffic Police Fee', desc: 'Renew your car/motorcycle driving license without hassle.' },
+                    { name: 'Regular Licence Lost / Expire', time: '3-5 Days', docs: 'Police report for lost license, CNIC copy, medical.', fee: 'Duplicate Fee + Service Charges', desc: 'Recover or reissue your lost or long-expired driving permit.' },
+                    { name: 'Licence Copy / Duplicate', time: '2 Days', docs: 'CNIC and license number.', fee: 'Standard Fee', desc: 'Get a verified duplicate copy of your driving license.' }
+                ]
+            },
+            {
+                id: 'vehicle-transfer',
+                title: 'Vehicle Transfer Service',
+                icon: 'fa-truck-fast',
+                badge: 'Excise & Taxation',
+                description: 'Pay token tax, vehicle registration transfer, smart card copies, and bike/car ownership verification.',
+                subServices: [
+                    { name: 'Pay Token Tax', time: 'Instant', docs: 'Vehicle Registration Number, Owner CNIC.', fee: 'Official Token Tax Amount', desc: 'Pay annual vehicle token tax securely and get verified digital tax payment receipt.' },
+                    { name: 'Vehicle Smart Card Copy', time: '2-4 Days', docs: 'Vehicle Registration Book/Card number, Owner CNIC.', fee: 'Excise Fee + Service Charges', desc: 'Apply for duplicate or new Excise vehicle smart card.' },
+                    { name: 'Bike & Car Ownership Transfer', time: '3-7 Days', docs: 'Buyer & Seller CNIC, Transfer deed, Original registration book/card.', fee: 'Excise Transfer Fee', desc: 'Legal and secure ownership transfer for motorcycles and cars.' },
+                    { name: 'Check Vehicle Owner Details', time: 'Instant', docs: 'Vehicle Registration Number (e.g. LE-21-XXXX)', fee: 'Nominal Service Fee', desc: 'Verify genuine vehicle ownership, token tax status, and registration record.' }
+                ]
+            },
+            {
+                id: 'railway',
+                title: 'Book Railway Ticket Service',
+                icon: 'fa-train',
+                badge: 'Instant E-Ticket',
+                description: 'Book train tickets across Pakistan Railways easily with confirmed seat selection and schedule guidance.',
+                subServices: [
+                    { name: 'AC Business / Economy Train Booking', time: 'Instant', docs: 'Passenger Name, CNIC, Mobile Number, Destination details.', fee: 'Exact Railway Fare + Service Charges', desc: 'Book verified confirmed seats for Green Line, Karakoram Express, Tezgam, and all routes.' },
+                    { name: 'Train Schedule & Fare Inquiry', time: 'Real-time', docs: 'Source and destination city names.', fee: 'Free Consultation', desc: 'Check up-to-date train arrival/departure timings, seat availability, and class pricing.' }
+                ]
+            },
+            {
+                id: 'bus',
+                title: 'Book Bus Ticket Service',
+                icon: 'fa-bus',
+                badge: 'All Major Services',
+                description: 'Book luxury and executive bus tickets (Daewoo, Faisal Movers, Bilal Travels, Skyways, etc.) instantly.',
+                subServices: [
+                    { name: 'Intercity Bus Ticket Booking', time: 'Instant', docs: 'Travel date, destination, passenger name & contact.', fee: 'Official Bus Fare + Booking Fee', desc: 'Guaranteed seat reservation for nationwide routes with premium bus operators.' },
+                    { name: 'Return Ticket & Seat Selection', time: 'Instant', docs: 'Preferred seat preference.', fee: 'Nominal Fee', desc: 'Choose your exact seat number and book return journeys in advance.' }
+                ]
+            },
+            {
+                id: 'bank-account',
+                title: 'Opening Bank Account Service',
+                icon: 'fa-building-columns',
+                badge: 'Financial Services',
+                description: 'Assistance in opening current, saving, and Islamic bank accounts in top commercial banks of Pakistan.',
+                subServices: [
+                    { name: 'Asaan Current / Saving Account', time: '1-3 Days', docs: 'Original CNIC, Income proof (if applicable), utility bill.', fee: 'Bank Minimum Deposit Requirement', desc: 'Simplified account opening process with minimal paperwork.' },
+                    { name: 'Freelancer & Business Accounts', time: '2-4 Days', docs: 'CNIC, NTN (if applicable), business proof or freelance profile.', fee: 'Standard Bank Opening Fee', desc: 'Dedicated bank accounts for digital freelancers and local business owners.' }
+                ]
+            },
+            {
+                id: 'fisheries',
+                title: 'Fisheries License Service',
+                icon: 'fa-fish',
+                badge: 'Official Permit',
+                description: 'New, renewal, and lost recovery services for fisheries and angling licenses.',
+                subServices: [
+                    { name: 'New Fisheries License', time: '2-3 Days', docs: 'CNIC, passport photo, application form.', fee: 'Department Fee + Service Charges', desc: 'Official license issuance for fishing and commercial fisheries.' },
+                    { name: 'Fisheries License Renewal & Lost', time: '1-2 Days', docs: 'Old license card or copy, CNIC.', fee: 'Standard Renewal Fee', desc: 'Renew or recover your expired/lost fisheries permit.' }
+                ]
+            },
+            {
+                id: 'govt-jobs',
+                title: 'Govt Jobs Service',
+                icon: 'fa-briefcase',
+                badge: 'Career Portal',
+                description: 'Online application submission for PPSC, FPSC, OTS, PTS, NTS, and all federal/provincial government job vacancies.',
+                subServices: [
+                    { name: 'Govt Job Online Application', time: 'Same Day', docs: 'Educational documents, CNIC, passport photo, CV.', fee: 'Bank Challan + Service Fee', desc: 'Accurate online form submission for all advertised government jobs.' },
+                    { name: 'Roll Number Slip & Result Download', time: 'Instant', docs: 'Candidate CNIC or Application ID.', fee: 'Nominal Service Fee', desc: 'Quick retrieval and printing of test roll number slips and interview call letters.' }
+                ]
+            },
+            {
+                id: 'govt-schemes',
+                title: 'Govt Schemes Service',
+                icon: 'fa-hand-holding-dollar',
+                badge: 'Welfare Portals',
+                description: 'Registration and eligibility check for Prime Minister and Chief Minister relief packages, loan schemes, and subsidies.',
+                subServices: [
+                    { name: 'Govt Loan & Relief Scheme Registration', time: '1-2 Days', docs: 'CNIC, Income certificate, Utility bill.', fee: 'Service Charges', desc: 'Apply for subsidized youth loans, solar panel schemes, and housing programs.' },
+                    { name: 'Subsidy & Package Verification', time: 'Instant', docs: 'Applicant CNIC number.', fee: 'Free Consultation', desc: 'Check eligibility for governmental welfare packages.' }
+                ]
+            },
+            {
+                id: 'cv-resume',
+                title: 'CV / Resume Service',
+                icon: 'fa-file-lines',
+                badge: 'Professional Design',
+                description: 'Creation of modern, professional ATS-friendly CVs, resumes, and cover letters tailored for local and international jobs.',
+                subServices: [
+                    { name: 'Professional ATS Resume Design', time: '1-2 Hours', docs: 'Personal details, education history, work experience, skills.', fee: 'Affordable One-time Fee', desc: 'Get a professionally formatted CV that passes automated HR screening systems.' },
+                    { name: 'Cover Letter & Bio-Data Typing', time: '1 Hour', docs: 'Job description or target role.', fee: 'Nominal Fee', desc: 'Customized cover letters and formal bio-data writing.' }
+                ]
+            },
+            {
+                id: 'disability',
+                title: 'Appointment of Disability Certificate',
+                icon: 'fa-wheelchair',
+                badge: 'Special Welfare',
+                description: 'Appointment booking and documentation assistance for official Disability Certificates and special welfare cards.',
+                subServices: [
+                    { name: 'Disability Certificate Appointment', time: '1-2 Days', docs: 'CNIC, medical reports, passport photo.', fee: 'Free Govt Service + Nominal Assistance Fee', desc: 'Schedule medical board assessment and obtain official disability certificate for welfare benefits.' }
+                ]
+            },
+            {
+                id: 'domicile',
+                title: 'Domicile Service',
+                icon: 'fa-certificate',
+                badge: 'Official Document',
+                description: 'Fast-track application and processing for Lahore District Domicile certificates.',
+                subServices: [
+                    { name: 'Lahore Domicile Certificate', time: '3-5 Days', docs: 'CNIC / B-Form, Father CNIC, educational certificates, passport photo, residential proof.', fee: 'Official Challan + Service Charges', desc: 'Complete filing and tracking for official district domicile.' }
+                ]
+            },
+            {
+                id: 'bisp',
+                title: 'BISP Check Payment Service',
+                icon: 'fa-wallet',
+                badge: 'Benazir Income Support',
+                description: 'Check Benazir Income Support Program (BISP) / Kafalat stipend status and payment eligibility instantly.',
+                subServices: [
+                    { name: 'BISP Payment & Eligibility Check', time: 'Instant', docs: 'CNIC Number, registered mobile number.', fee: 'Nominal Service Fee', desc: 'Check your quarterly cash assistance status and survey eligibility securely.' }
+                ]
+            },
+            {
+                id: 'sims-check',
+                title: 'How Many SIMs in Your CNIC Service',
+                icon: 'fa-sim-card',
+                badge: 'PTA Verification',
+                description: 'Verify the total number of active mobile SIM cards registered against your CNIC via PTA database.',
+                subServices: [
+                    { name: 'CNIC SIM Count Verification', time: 'Instant', docs: 'Original CNIC number.', fee: 'Nominal Service Fee', desc: 'Protect your identity by checking all mobile network SIMs registered under your name across Jazz, Telenor, Zong, and Ufone.' }
+                ]
+            },
+            {
+                id: 'land',
+                title: 'Land Service (Fard, Registry, Intaqal)',
+                icon: 'fa-map-location-dot',
+                badge: 'Land Revenue',
+                description: 'Official revenue record copies including Fard, Registry, Intaqal, and Crop Inspection copies from Punjab Land Record Authority.',
+                subServices: [
+                    { name: 'Fard Copy (Property Ownership)', time: 'Same Day', docs: 'CNIC of owner, property Khata / Khewat number, Mouza details.', fee: 'Govt Fee + Service Charges', desc: 'Obtain verified computerised Fard for property verification or bank loan.' },
+                    { name: 'Registry & Intaqal Copy', time: '1-2 Days', docs: 'Registry number, year, land location.', fee: 'Official Revenue Fee', desc: 'Certified copies of property sale deeds and mutation (Intaqal) records.' },
+                    { name: 'Crop Inspection Copy (Girdawari)', time: '1-3 Days', docs: 'Khasra number, land details.', fee: 'Nominal Fee', desc: 'Official agricultural land crop inspection record copies.' }
+                ]
+            },
+            {
+                id: 'police',
+                title: 'Police Service',
+                icon: 'fa-shield-halved',
+                badge: 'Law Enforcement',
+                description: 'Police character certificates, tenant registration, and employee verification services.',
+                subServices: [
+                    { name: 'Police Character & Verification Certificate', time: '3-5 Days', docs: 'CNIC, Passport size photo, passport copies (if for abroad).', fee: 'Official Police Fee + Service Charges', desc: 'Obtain official police clearance certificate for employment, visa, or immigration.' },
+                    { name: 'Tenants & Employee Registration', time: 'Same Day', docs: 'Owner CNIC, Tenant/Employee CNIC & photo.', fee: 'Nominal Service Fee', desc: 'Mandatory legal registration for tenants and domestic/commercial employees with local police.' }
+                ]
+            },
+            {
+                id: 'pta-echallan',
+                title: 'PTA & E-Challan Service',
+                icon: 'fa-mobile-screen',
+                badge: 'Digital & Telecom',
+                description: 'Mobile phone PTA tax registration, lost phone blocking, and Safe City traffic E-Challan payment service.',
+                subServices: [
+                    { name: 'E-Challan Checking & Payment', time: 'Instant', docs: 'Vehicle Registration Number or CNIC.', fee: 'Official E-Challan Fine + Service Fee', desc: 'Check and pay traffic violation E-Challans instantly with verified digital receipt.' },
+                    { name: 'Mobile Phone PTA Tax Registration', time: '1-2 Days', docs: 'Passport, Mobile IMEI number (dial *#06#), CNIC.', fee: 'PTA Tax Amount + Service Fee', desc: 'Calculate and pay official PTA customs duty for imported mobile phones.' },
+                    { name: 'Lost / Theft / Robbery Mobile Blocking', time: 'Instant', docs: 'IMEI number, CNIC, mobile box/invoice.', fee: 'Free Assistance', desc: 'Immediate blocking of stolen or snatched mobile phones via PTA to prevent misuse.' }
+                ]
+            },
+            {
+                id: 'financial-utilities',
+                title: 'JazzCash, EasyPaisa, Bank Transfer & Bills',
+                icon: 'fa-money-bill-transfer',
+                badge: 'Instant Transactions',
+                description: 'Money transfers, mobile load, cash deposits/withdrawals, and payment of all utility bills (WAPDA, SNGPL, WASA).',
+                subServices: [
+                    { name: 'JazzCash & EasyPaisa Deposit / Withdrawal', time: 'Instant', docs: 'Mobile account number, CNIC.', fee: 'Standard Transparent Charges', desc: 'Safe and instant cash-in, cash-out, and mobile wallet transactions.' },
+                    { name: 'Interbank Fund Transfer (IBFT)', time: 'Instant', docs: 'Bank account number, IBAN, Title of account.', fee: 'Nominal Bank Transfer Fee', desc: 'Secure money transfers to any commercial bank in Pakistan.' },
+                    { name: 'Paid Utility Bills Service (Electricity, Gas, Water)', time: 'Instant', docs: 'Consumer reference number or bill copy.', fee: 'Free or Nominal Service Fee', desc: 'Pay LESCO electricity bills, Sui Northern gas bills, and WASA water bills instantly with official paid receipt.' }
+                ]
+            }
+        ];
+
+        // Render Categories on Initial Load
+        function renderCategories(filter = '') {
+            const grid = document.getElementById('categories-grid');
+            const countEl = document.getElementById('service-count');
+            
+            const filtered = servicesData.filter(s => 
+                s.title.toLowerCase().includes(filter.toLowerCase()) ||
+                s.description.toLowerCase().includes(filter.toLowerCase()) ||
+                s.subServices.some(sub => sub.name.toLowerCase().includes(filter.toLowerCase()))
+            );
+
+            countEl.textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center glass-card rounded-3xl">
+                        <i class="fa-solid fa-search text-4xl text-gray-500 mb-4"></i>
+                        <h4 class="text-xl font-bold text-white">No services found</h4>
+                        <p class="text-gray-400 text-sm mt-1">Try searching with a different keyword like "CNIC", "BISE Lahore", "E-Challan", or "License".</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(service => `
+                <div onclick="openServiceDetail('${service.id}')" class="glass-card rounded-3xl p-6 sm:p-7 cursor-pointer transition-all duration-300 hover:-translate-y-1.5 group flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-all shadow-md">
+                                <i class="fa-solid ${service.icon}"></i>
+                            </div>
+                            <span class="text-xs bg-gray-800 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full font-medium">
+                                ${service.badge}
+                            </span>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-400 transition">${service.title}</h4>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2 leading-relaxed">${service.description}</p>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-emerald-400 font-semibold">
+                        <span>${service.subServices.length} Sub-Services</span>
+                        <span class="flex items-center gap-1 group-hover:translate-x-1 transition">View Details <i class="fa-solid fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Live Search Handler
+        function handleSearch(query) {
+            renderCategories(query);
+        }
+
+        // Open Service Detail View
+        function openServiceDetail(serviceId) {
+            const service = servicesData.find(s => s.id === serviceId);
+            if (!service) return;
+
+            document.getElementById('home-view').classList.add('hidden');
+            const detailView = document.getElementById('detail-view');
+            detailView.classList.remove('hidden');
+
+            const container = document.getElementById('sub-service-content');
+            container.innerHTML = `
+                <div class="glass-card rounded-3xl p-8 sm:p-10 border border-emerald-500/20 mb-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div class="flex items-center space-x-5">
+                            <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-3xl">
+                                <i class="fa-solid ${service.icon}"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full font-semibold uppercase">
+                                    ${service.badge}
+                                </span>
+                                <h2 class="text-2xl sm:text-4xl font-extrabold text-white mt-2">${service.title}</h2>
+                            </div>
+                        </div>
+                        <button onclick="openModal('${service.title}')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3.5 px-6 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-emerald-600/30 shrink-0">
+                            <i class="fa-solid fa-file-pen text-lg"></i>
+                            <span>Apply / Inquire Now</span>
+                        </button>
+                    </div>
+                    <p class="text-gray-300 mt-4 text-base leading-relaxed">${service.description}</p>
+                </div>
+
+                <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-list-check text-emerald-400"></i> Available Sub-Services & Requirements Guide
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    ${service.subServices.map((sub, index) => `
+                        <div class="glass-card rounded-2xl p-6 border border-gray-800 flex flex-col justify-between hover:border-emerald-500/40 transition">
+                            <div>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-xs bg-gray-800 text-gray-300 px-2.5 py-1 rounded-md font-mono">0${index + 1}</span>
+                                    <span class="text-xs bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full font-medium flex items-center gap-1.5">
+                                        <i class="fa-regular fa-clock"></i> ${sub.time}
+                                    </span>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mb-2">${sub.name}</h4>
+                                <p class="text-gray-300 text-sm mb-4 leading-relaxed">${sub.desc}</p>
+                                
+                                <div class="space-y-2 mb-4 bg-gray-900/60 p-4 rounded-xl border border-gray-800/80 text-xs">
+                                    <div class="flex items-start gap-2 text-gray-300">
+                                        <i class="fa-solid fa-file-lines text-emerald-400 mt-0.5"></i>
+                                        <span><strong>Required Documents:</strong> ${sub.docs}</span>
+                                    </div>
+                                    <div class="flex items-start gap-2 text-gray-300">
+                                        <i class="fa-solid fa-tag text-emerald-400 mt-0.5"></i>
+                                        <span><strong>Fee Guidance:</strong> ${sub.fee}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                                <span class="text-xs text-gray-400">Muhammad Asad Service Hub</span>
+                                <button onclick="openModal('${service.title} - ${sub.name}')" class="bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-500/40 px-4 py-2 rounded-xl text-xs font-semibold transition flex items-center space-x-1.5">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <span>Apply Now</span>
+                                </button>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Modal Controls
+        function openModal(serviceName) {
+            document.getElementById('client-service').value = serviceName;
+            document.getElementById('modal-title').textContent = 'Apply for ' + serviceName;
+            document.getElementById('inquiry-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('inquiry-modal').classList.add('hidden');
+        }
+
+        function submitInquiry(event) {
+            event.preventDefault();
+            const name = document.getElementById('client-name').value;
+            const phone = document.getElementById('client-phone').value;
+            const service = document.getElementById('client-service').value;
+            const message = document.getElementById('client-message').value;
+
+            const text = `Assalam-o-Alaikum,\nMy name is *${name}* (Phone: ${phone}).\nI want to apply/inquire for: *${service}*.\nAdditional Details: ${message || 'None'}`;
+            const encoded = encodeURIComponent(text);
+            window.open(`https://wa.me/923048981348?text=${encoded}`, '_blank');
+            closeModal();
+        }
+
+        // Navigate back to Home
+        function navigateToHome() {
+            document.getElementById('detail-view').classList.add('hidden');
+            document.getElementById('home-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll to contact section
+        function scrollToContact() {
+            navigateToHome();
+            setTimeout(() => {
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            renderCategories();
+        }
+    </script>
+</body>
+</html>
